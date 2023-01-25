@@ -15,5 +15,6 @@ tasks:
 
   build:
     cmds:
+      - go mod tidy
       - go build -o go-s3cp main.go
     silent: true
