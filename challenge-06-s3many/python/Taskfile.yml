@@ -1,0 +1,15 @@
+# https://taskfile.dev
+
+version: '3'
+
+env:
+  BUCKET: dateneimer
+
+tasks:
+  run:
+    desc: Run benchmark
+    cmds:
+      - time python3 app.py
+    silent: false
+
+

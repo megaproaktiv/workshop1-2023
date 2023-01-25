@@ -1,0 +1,19 @@
+# https://taskfile.dev
+
+version: '3'
+
+env:
+  BUCKET: dateneimer
+
+tasks:
+  build:
+    desc: build jar
+    cmds:
+      - mvn clean package
+    silent: true
+
+  run:
+    desc: Run Java 
+    deps: [build]
+    cmds:
+      - time mvn exec:java -Dexec.mainClass="hdi.S3Uploader"

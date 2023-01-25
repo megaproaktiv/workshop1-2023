@@ -1,0 +1,19 @@
+# https://taskfile.dev
+
+version: '3'
+
+env:
+  BUCKET: dateneimer
+
+tasks:
+  run:
+    desc: Run benchmark
+    deps: [build]
+    cmds:
+      - time ./fill.sh
+    silent: false
+
+  build:
+    cmds:
+      - go build -o go-s3cp main.go
+    silent: true

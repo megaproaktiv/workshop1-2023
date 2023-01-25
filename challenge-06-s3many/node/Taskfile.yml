@@ -1,0 +1,17 @@
+# https://taskfile.dev
+
+version: '3'
+
+env:
+  BUCKET: dateneimer
+
+tasks:
+  run:
+    desc: Run node
+    deps: [init]
+    cmds:
+      - time node index.js
+
+  init:
+    cmds:
+      - npm i
