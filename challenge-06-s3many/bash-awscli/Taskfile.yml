@@ -11,3 +11,7 @@ tasks:
     cmds:
       - time ./fill.sh
     silent: false
+
+  init:
+    cmds:
+      - echo "No installation required"

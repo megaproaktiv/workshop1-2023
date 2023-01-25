@@ -4,6 +4,7 @@ version: '3'
 
 env:
   BUCKET: dateneimer
+  AWS_REGION: eu-central-1  
 
 tasks:
   run:
@@ -18,3 +19,7 @@ tasks:
       - go mod download
       - go build -o s3create100 main.go
     silent: false
+
+  init:
+    cmds:
+      - echo "No installation required"

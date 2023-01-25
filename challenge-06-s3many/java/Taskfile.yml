@@ -6,9 +6,10 @@ env:
   BUCKET: dateneimer
 
 tasks:
-  install:
+  init:
     desc: Install maven on cloud9
     cmds:
+      - Echo installing maven
       - sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
 
   build:
@@ -19,6 +20,6 @@ tasks:
 
   run:
     desc: Run Java 
-    deps: [install,build]
+    deps: [build]
     cmds:
       - time mvn exec:java -Dexec.mainClass="hdi.S3Uploader"

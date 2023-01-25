@@ -8,10 +8,10 @@ env:
 tasks:
   run:
     desc: Run node
-    deps: [init]
     cmds:
       - time node index.js
 
   init:
     cmds:
+      - echo downloading libraries
       - npm i

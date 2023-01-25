@@ -13,8 +13,9 @@ tasks:
       - time python3 app.py
     silent: false
 
-  install:
+  init:
     cmds:
+      - echo installing requirements
       - pip3 install -r requirements.txt
 
 
