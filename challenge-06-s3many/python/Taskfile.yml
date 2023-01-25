@@ -12,4 +12,8 @@ tasks:
       - time python3 app.py
     silent: false
 
+  install:
+    cmds:
+      - pip install -r requirements.txt
+
 

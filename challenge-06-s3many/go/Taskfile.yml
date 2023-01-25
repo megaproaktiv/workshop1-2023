@@ -17,4 +17,4 @@ tasks:
     cmds:
       - go mod download
       - go build -o s3create100 main.go
-    silent: true
+    silent: false
