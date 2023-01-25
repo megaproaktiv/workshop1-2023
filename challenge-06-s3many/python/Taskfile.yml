@@ -8,7 +8,6 @@ env:
 tasks:
   run:
     desc: Run benchmark
-    deps: [install]
     cmds:
       - time python3 app.py
     silent: false
