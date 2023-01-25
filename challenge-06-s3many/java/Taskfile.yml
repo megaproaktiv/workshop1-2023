@@ -9,8 +9,11 @@ tasks:
   init:
     desc: Install maven on cloud9
     cmds:
-      - Echo installing maven
-      - sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+      - echo installing maven
+      - cmd : |
+          sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+          sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+          sudo yum install -y apache-maven
 
   build:
     desc: build jar
