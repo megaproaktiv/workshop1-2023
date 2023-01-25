@@ -1,0 +1,26 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  ACCOUNT: 
+    sh: aws sts get-caller-identity --query Account --output text
+
+tasks:
+  create-bucket:
+    desc: Create the bucket for the challenge
+    cmds:
+      - aws s3 mb s3://challenge-06-{{.ACCOUNT}}
+      - aws ssm put-parameter --name "challenge-6-bucket" --value "challenge-06-{{.ACCOUNT}}" --type String --overwrite
+    silent: true
+
+  empty-bucket:
+    desc: delete all objects in the bucket
+    cmds:
+      - aws s3 rm s3://challenge-06-{{.ACCOUNT}} --recursive  
+
+  delete-bucket:
+    desc: delete bucket and all objects
+    cmds:
+      - aws s3 rb s3://challenge-06-{{.ACCOUNT}} --force
+
