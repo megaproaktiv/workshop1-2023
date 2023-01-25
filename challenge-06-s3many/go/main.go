@@ -28,7 +28,7 @@ func main() {
 		log.Println("Failed opening file", path, err)
 	}
 	defer file.Close()
-	for i := 1; i < 100; i++ {
+	for i := 1; i <= 100; i++ {
 		key := fmt.Sprintf("test-go-%d.md",i)
 
 		_, err := client.PutObject(context.TODO(), &s3.PutObjectInput{
